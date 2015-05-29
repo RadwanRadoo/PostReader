@@ -1,0 +1,1 @@
+var frontEnd = angular.module('frontEnd', ['ngRoute']);
