@@ -1,4 +1,4 @@
-frontEnd.controller('HomeCtrl', function($scope) {
+frontEnd.controller('HomeCtrl', ['$scope', function($scope) {
     $scope.FBLogin = function() {
         FB.login(function(response) {
             if (response.authResponse) {
@@ -13,4 +13,4 @@ frontEnd.controller('HomeCtrl', function($scope) {
             }
         });
     }
-});
+}]);

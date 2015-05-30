@@ -11,10 +11,21 @@ frontEnd.config(function($routeProvider) {
 		})
 		.when('/dashboard', {
 			templateUrl : 'views/home/dashboard.html',
-			controller : 'DashCtrl'
+			controller : 'DashCtrl',
+			authenticated: true
 		})
 		.otherwise('/', {
 			templateUrl : 'views/home/home.html',
 			controller : 'HomeCtrl'
 		});
+});
+
+frontEnd.run(function($rootScope, $location) {
+	$rootScope.$on('$routeChangeStart', function(event, next, current) {
+		if (next.$$route.authenticated) {
+			console.log('Authenticated');
+		} else {
+			console.log('Not Authenticated');
+		}
+	});
 });

@@ -1,3 +1,3 @@
-frontEnd.controller('DashCtrl', function($scope) {
+frontEnd.controller('DashCtrl', ['$scope', function($scope) {
 
-});
+}]);

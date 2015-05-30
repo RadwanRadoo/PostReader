@@ -1,4 +1,3 @@
-frontEnd.controller('LoginCtrl', function($scope) {
-	console.log(1);
+frontEnd.controller('LoginCtrl', ['$scope', function($scope) {
 
-});
+}]);
