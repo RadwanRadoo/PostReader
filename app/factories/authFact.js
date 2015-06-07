@@ -1,16 +1,24 @@
-frontEnd.factory('authFact', [function() {
+frontEnd.factory('authFact', ['$cookieStore', function ($cookieStore) {
     var authFact = {};
 
     this.authToken = null;
 
     authFact.setAccessToken = function(authToken) {
-        authFact.authToken = authToken;
-        console.log('Token set', authFact.authToken);
+        $cookieStore.put('accessToken', authToken);
     };
 
     authFact.getAccessToken = function() {
-        console.log('Token get', authFact.authToken);
+        authFact.authToken = $cookieStore.get('accessToken');
         return authFact.authToken;
+    };
+
+    authFact.getuserObj = function () {
+        var userObj = $cookieStore.get('userObj');
+
+        if (userObj)
+            return userObj;
+        else
+            console.log('User object not found');
     };
 
     return authFact;
